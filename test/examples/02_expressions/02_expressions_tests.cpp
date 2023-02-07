@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "expressions.h"
 #include "casting.h"
+#include "constants.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -26,4 +27,9 @@ TEST_CASE("Verify double to int", "verify conversion")
 {
 	REQUIRE(convert_double_to_int(5.55) == 5);
 	//REQUIRE(convert_double_to_int(5.55) == 6);
+}
+
+TEST_CASE("Verify const variable area of circle")
+{
+	REQUIRE(get_area_of_circle(10) == 314.159);
 }
