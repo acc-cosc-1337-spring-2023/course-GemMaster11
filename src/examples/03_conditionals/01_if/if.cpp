@@ -12,7 +12,7 @@ bool get_ored_result(bool b1, bool b2)
 
 bool get_notted(bool b1)
 {
-    return b1;
+    return !(b1);
 }
 
 
