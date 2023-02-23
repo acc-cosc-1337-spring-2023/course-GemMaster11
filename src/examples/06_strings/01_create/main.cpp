@@ -1,17 +1,27 @@
 #include <iostream>
+#include <string>
 
 using std::cout;
 using std::string;
 
+//stack addresses will decrement while heap addresses will increment, they also use hexadecimal codes
+
 int main()
 {
-    string lang = "C++";
+    string lang = "C++"; //stack memory used and heap memory used, "C++" IS STORED IN HEAP
+    int num =5;
+
+
     cout<<"Address of lang: "<<&lang<<"\n";
+    cout<<"Address of num: "<<&num<<"\n";
     cout<<lang[0]<<"\n";
+    cout<<"Address of character at 0 index: "<<static_cast<void *>(&lang[0])<<"\n";
+    cout<<"Address of character at 0 index: "<<static_cast<void *>(&lang[1])<<"\n"; //static_cast converts one data type to another
+    cout<<"Address of character at 0 index: "<<static_cast<void *>(&lang[2])<<"\n";
     cout<<"Size is: "<<lang.size()<<"\n";
     cout<<"Capacity: "<<lang.capacity()<<"\n";
 
-    //create strings examples
+    /*create strings examples
     string s0("initial string");
     cout<<s0<<"\n";
 
@@ -35,7 +45,7 @@ int main()
     cout<<s5<<"\n";
 
     string s6(10, 42);// 42 is the *, ascii 
-    cout<<s6<<"\n";
+    cout<<s6<<"\n"; */
 
     return 0;
 }
