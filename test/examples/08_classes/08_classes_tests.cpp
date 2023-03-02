@@ -17,5 +17,45 @@ TEST_CASE("Verify checking get balance")
 {
 	CheckingAccount account;
 	
-	REQUIRE(account.get_balance() == 0);
+	REQUIRE(account.get_balance() > 0);
+	REQUIRE(account.get_balance() <= 10000);
+}
+
+TEST_CASE("Verify checking deposit")
+{
+	CheckingAccount account(500);
+	REQUIRE(account.get_balance() == 500);
+
+	account.deposit(50);
+	REQUIRE(account.get_balance() == 550);
+
+	account.deposit(-50);
+	REQUIRE(account.get_balance() == 550);
+}
+
+TEST_CASE("verify checking withdraw")
+{
+	CheckingAccount account(500);
+	REQUIRE(account.get_balance() == 500);
+
+	account.withdraw(50);
+	REQUIRE(account.get_balance() == 450);
+}
+
+TEST_CASE("verify checking withdraw with invalid")
+{
+	CheckingAccount account(500);
+	REQUIRE(account.get_balance() == 500);
+
+	account.withdraw(-50);
+	REQUIRE(account.get_balance() == 500);
+}
+
+TEST_CASE("verify checking withdraw with amount gt balance")
+{
+	CheckingAccount account(500);
+	REQUIRE(account.get_balance() == 500);
+
+	account.withdraw(501);
+	REQUIRE(account.get_balance() == 500);
 }

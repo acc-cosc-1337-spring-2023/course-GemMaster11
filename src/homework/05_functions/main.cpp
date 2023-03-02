@@ -1,10 +1,6 @@
-#include <iostream>
-#include <string>
 #include "func.h"
 
-using std::cout;
-using std::cin;
-using std::string;
+
 
 /*
 use a vector of int with values 8, 4, 20, 88, 66, 99
