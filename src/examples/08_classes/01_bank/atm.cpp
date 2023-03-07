@@ -7,13 +7,13 @@ using std::cout;
 void display_menu()
 {
     cout<<"ACC COSC Bank \n\n";
-    cout<<"1 - Deposity \n";
+    cout<<"1 - Deposit \n";
     cout<<"2 - Withdraw \n";
     cout<<"3 - Display Balance \n";
     cout<<"4 - Exit \n";
 }
 
-void run_menu(CheckingAccount& account)
+void run_menu(BankAccount& account)
 {
     auto option = 0;
 
@@ -29,7 +29,7 @@ void run_menu(CheckingAccount& account)
 
 }
 
-void handle_menu_option(int option, CheckingAccount& account)
+void handle_menu_option(int option, BankAccount& account)
 {
     auto amount = 0;
 

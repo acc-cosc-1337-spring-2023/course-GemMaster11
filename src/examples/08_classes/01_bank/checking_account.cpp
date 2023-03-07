@@ -1,7 +1,7 @@
 //checking_account.cpp
 #include "checking_account.h"
 
-void CheckingAccount::get_balance_from_db()
+/*void CheckingAccount::get_balance_from_db()
 {
     balance = rand() % 10000 + 1; //value between 1 and 10000
 }
@@ -30,7 +30,7 @@ void show_balance(CheckingAccount account)
     
 }
 
-/*std::ostream& operator<<(std::ostream& out, const CheckingAccount &account)
+std::ostream& operator<<(std::ostream& out, const CheckingAccount &account)
 {
     out<<"Operator overload: "<<
 
