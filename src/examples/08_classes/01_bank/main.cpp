@@ -6,18 +6,20 @@
 
 using std::cout;
 using std::cin;
+using std::vector;
 
 int main()
 {
+	srand(time(NULL)); //allows random number to actually randomize if not present then has a set randomized number
+	vector<BankAccount*> accounts;
+	SavingsAccount savings;
+	CheckingAccount account;//cust 1
+
+	run_menu(accounts);
 	
 
-
-	srand(time(NULL)); //allows random number to actually randomize if not present then has a set randomized number
-	SavingsAccount savings;
-
-	CheckingAccount account;//cust 1
 	auto choice = 's';
-
+/*
 	cout<<"Use checking or savings?";
 	cin>>choice;
 
@@ -39,6 +41,15 @@ int main()
 	run_menu(account);	
 
 	cout<<account.get_balance()<<"\n";
+*/
 
+/*
+	BankAccount *bank_account; //Doesn't point to a variable, only declares it
+
+	show_balance(savings);
+	cout<<savings.get_balance()<<"\n";
+
+	bank_account = &savings;
+	cout<<bank_account->get_balance()<<"\n"; //must use arrow -> operator*/
 	return 0;
 }

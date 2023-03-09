@@ -15,7 +15,7 @@ public: //anyone outside of class can use
 
     BankAccount() : BankAccount(1000) {get_balance_from_db();} //This is the default constructor C++ makes for you
     BankAccount(int b) : balance(b){/*empty code block*/} //this is a constructor
-    int get_balance() const{return balance;} //makes balance unable to be modified when returned but can be modified any time before
+    virtual int get_balance() const{return balance;} //makes balance unable to be modified when returned but can be modified any time before
     void deposit(int amount);
     void withdraw(int amount);
 
