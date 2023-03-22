@@ -1,19 +1,27 @@
 #include <iostream>
+#include<memory>
 #include<time.h>
 #include "checking_account.h"
 #include "atm.h"
 #include "savings_account.h"
 
 using std::cout;
+using std::unique_ptr;
+using std::make_unique;
 using std::cin;
 using std::vector;
 
 int main()
 {
 	srand(time(NULL)); //allows random number to actually randomize if not present then has a set randomized number
-	vector<BankAccount*> accounts;
-	SavingsAccount savings;
-	CheckingAccount account;//cust 1
+	vector<unique_ptr<BankAccount>> accounts;
+	unique_ptr<BankAccount> savings = make_unique<SavingsAccount>();
+	unique_ptr<BankAccount> checking = make_unique<CheckingAccount>();//cust 1
+	accounts.push_back(move(checking));
+	accounts.push_back(move(savings));
+
+	cout<<accounts[0]->get_balance()<<"\n";
+	cout<<accounts[1]->get_balance()<<"\n";
 
 	run_menu(accounts);
 	

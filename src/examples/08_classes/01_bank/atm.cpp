@@ -13,7 +13,7 @@ void display_menu()
     cout<<"4 - Exit \n";
 }
 
-void run_menu(std::vector<BankAccount*> &accounts)
+void run_menu(std::vector<std::unique_ptr<BankAccount>> &accounts)
 {
     auto option = 0;
     auto choice = 0;
@@ -21,7 +21,7 @@ void run_menu(std::vector<BankAccount*> &accounts)
     cout<<"Checking(1) or savings(2)? ";
     cin>>choice;
 
-    BankAccount* account = accounts[choice - 1];
+    std::unique_ptr<BankAccount> &account = accounts[choice - 1];
 
     do
     {
