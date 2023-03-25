@@ -10,10 +10,18 @@ using std::cin;
 int main() 
 {
 	string user;
-	cout<<"Input X or O: ";
-	cin>>user;
+	string cont;
 	Game* game = new Game();
-	game->start_game(user);
 
+	do 
+	{
+		cout<<"Input X or O: ";
+		cin>>user;
+		game->start_game(user);
+		cout<<"Continue? Y/N: ";
+		cin>>cont;
+
+	} while (cont == "Y" || cont == "y");
+	
 	return 0;
 }
