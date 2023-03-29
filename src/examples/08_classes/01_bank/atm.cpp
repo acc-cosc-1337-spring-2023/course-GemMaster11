@@ -3,6 +3,10 @@
 
 using std::cin; 
 using std::cout;
+using std::vector;
+
+vector<Customer> customers{Customer(), Customer(), Customer(), Customer(), Customer()};
+
 
 void display_menu()
 {
@@ -18,10 +22,12 @@ void run_menu(std::vector<std::unique_ptr<BankAccount>> &accounts)
     auto option = 0;
     auto choice = 0;
 
+    auto customer = customers[0];
+
     cout<<"Checking(1) or savings(2)? ";
     cin>>choice;
 
-    std::unique_ptr<BankAccount> &account = accounts[choice - 1];
+    std::unique_ptr<BankAccount> &account = customer.get_account(choice - 1);
 
     do
     {
