@@ -2,7 +2,6 @@
 #include "customer.h"
 
 using std::make_unique;
-using std::unique_ptr;
 
 Customer::Customer()
 {

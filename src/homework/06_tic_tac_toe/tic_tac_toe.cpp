@@ -3,7 +3,6 @@
 
 using std::string;
 using std::cout;
-using std::cin;
 
 
 bool Game::game_over()

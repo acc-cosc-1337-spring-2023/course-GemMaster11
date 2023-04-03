@@ -5,7 +5,6 @@
 #include<memory>
 #include<vector>
 
-
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
@@ -17,8 +16,7 @@ public:
 
 private:
     std::vector<std::unique_ptr<BankAccount>> accounts;
-
-
 };
+
 
 #endif

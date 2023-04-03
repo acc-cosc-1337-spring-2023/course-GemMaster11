@@ -1,29 +1,28 @@
 //bank_account.h
-//Bank_account.h
 #include<stdlib.h>
 #include<iostream>
+
 #ifndef BANK_ACCOUNT_H
 #define BANK_ACCOUNT_H
 
-class BankAccount
+class BankAccount//Abstract class
 {
-friend void show_balance(BankAccount account); // friend functions can access private even if its a free function
+friend void show_balance(const BankAccount &account);
 friend std::ostream& operator<<(std::ostream& out, const BankAccount &account);
 
-
-public: //anyone outside of class can use
-
-    BankAccount() : BankAccount(1000) {get_balance_from_db();} //This is the default constructor C++ makes for you
-    BankAccount(int b) : balance(b){/*empty code block*/} //this is a constructor
-    virtual int get_balance() const{return balance;} //makes balance unable to be modified when returned but can be modified any time before
+public:
+    BankAccount(){get_balance_from_db();}//default constructor
+    BankAccount(int b) : balance(b){/*empty code block*/}
+    virtual int get_balance() const = 0;//pure virtual function
     void deposit(int amount);
     void withdraw(int amount);
 
-private: //cannot be accessed outside of class
-    int balance{0}; //initializes it as 0
+protected:
+    int balance{0};//initialize to 0
+
+private:
     void get_balance_from_db();
-
-
 };
 
 #endif
+
