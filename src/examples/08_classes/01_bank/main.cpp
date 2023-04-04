@@ -2,6 +2,7 @@
 #include<vector>
 #include "atm.h"
 #include "customer.h"
+#include "atm_data.h"
 
 using std::vector;
 
@@ -15,6 +16,9 @@ int main()
     customers.push_back(Customer());
 	customers.push_back(Customer());
     customers.push_back(Customer());
+
+	ATMData data;
+	data.save_customers(customers);
 
 	run_menu(customers);
 

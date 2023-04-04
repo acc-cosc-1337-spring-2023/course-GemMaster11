@@ -114,7 +114,7 @@ string Game::get_player() const
     return player;
 }
 
-void Game::display_board() const
+/*void Game::display_board() const
 {
     for (int i = 0; i < 9; i += 3) 
     {
@@ -125,7 +125,7 @@ void Game::display_board() const
             cout << "\n";
         }
     }
-}
+}*/
 
 string Game::get_winner()
 {

@@ -2,18 +2,23 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include<stdlib.h>
 #ifndef TIC_H
 #define TIC_H
 
 class Game
 {
+friend std::ostream& operator<<(std::ostream& out, const Game& game);
+friend std::istream& operator>>(std::istream& in, Game& game);
+
+
 public:
 
     bool game_over();
     virtual void start_game(std::string first_player);
     void mark_board(int position);
     std::string get_player() const;
-    void display_board() const;
+    //void display_board() const;
 
     std::string get_winner();
 

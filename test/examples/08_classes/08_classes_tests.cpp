@@ -63,7 +63,7 @@ TEST_CASE("verify checking withdraw with amount gt balance")
 
 TEST_CASE("Verify bank and savings account get balance overridden")
 {
-	BankAccount account(100);
+	CheckingAccount account(100);
 	REQUIRE(account.get_balance() == 100);
 	
 	SavingsAccount savings(100);
