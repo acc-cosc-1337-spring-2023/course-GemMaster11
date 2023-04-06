@@ -58,7 +58,8 @@ void Game::mark_board(int position)
 {
     auto mark = position - 1;
     pegs[mark] = player;
-    display_board();
+    cout<<*this;
+    //display_board();
     set_next_player();
 }
 

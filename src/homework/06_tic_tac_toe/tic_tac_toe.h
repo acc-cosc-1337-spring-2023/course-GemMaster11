@@ -8,8 +8,31 @@
 
 class Game
 {
-friend std::ostream& operator<<(std::ostream& out, const Game& game);
-friend std::istream& operator>>(std::istream& in, Game& game);
+    friend std::ostream& operator<<(std::ostream& out, const Game& game)
+    {
+        for (int i = 0; i < 9; i += 3) 
+        {
+            out << game.pegs[i] << "|" << game.pegs[i + 1] << "|" << game.pegs[i + 2];
+
+            if (i + 1 != 9) 
+            {
+                out << "\n";
+            }
+        }
+
+        return out;
+    }
+    friend std::istream& operator>>(std::istream& in, Game& game)
+    {
+        int position;
+
+        std::cout<<"Enter position from 1 to 9: ";
+        in>>position;
+
+        game.mark_board(position);
+
+        return in;
+    }
 
 
 public:

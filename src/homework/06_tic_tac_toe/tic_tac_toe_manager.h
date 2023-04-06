@@ -5,14 +5,28 @@
 
 class Manager
 {
+friend std::ostream& operator<<(std::ostream& out, const Manager& manager)
+{
+    std::cout<<"Game Summary\n";
+    for(auto i : manager.games)
+    {
+        std::cout<<i<<"\n";
+    }
+
+    std::cout<<"Game Stats\n";
+    std::cout<<"X wins: "<<manager.x_win<<"\n";
+    std::cout<<"O wins: "<<manager.o_win<<"\n";
+    std::cout<<"Ties: "<<manager.ties<<"\n";
+    return out;
+}
+
 public:
 void save_game(Game b);
-//std::ostream& operator<<(std::ostream& out, const Manager& manager);
 void get_winner_total(int& o, int& w, int& t);
 
 
 private:
-std::vector <int> games;
+std::vector <Game> games;
 int x_win = 0;
 int o_win = 0;
 int ties = 0;

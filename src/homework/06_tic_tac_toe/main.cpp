@@ -1,4 +1,5 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 #include<iostream>
 #include <string>
 
@@ -12,10 +13,10 @@ int main()
 	string user;
 	string cont;
 	Game* game = new Game();
+	Manager manage;
  
 	do 
 	{
-		int position;
 
 		cout<<"(Capitals only)\n";
 		cout<<"Input X or O: ";
@@ -23,14 +24,27 @@ int main()
 		game->start_game(user);
 		while(!game->game_over())
 		{
-			cout<<"Enter position from 1 to 9: ";
-        	cin>>position;
-        	game->mark_board(position);
+			cin>>*game;
 		}
 		cout<<"Continue? Y/N: ";
 		cin>>cont;
+		manage.save_game(*game);
 
 	} while (cont == "Y" || cont == "y");
+
+	if(cont == "N" || cont =="n")
+	{
+		int o;
+		int x;
+		int t;
+
+		manage.get_winner_total(o, x, t);
+
+		cout<<"\n";
+    	cout<<"X wins: "<<x<<"\n";
+    	cout<<"O wins: "<<o<<"\n";
+		cout<<"Ties: "<<t<<"\n";
+	}
 	
 	return 0;
 }
