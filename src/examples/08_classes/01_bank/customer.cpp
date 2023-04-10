@@ -1,23 +1,16 @@
-//customer.h
-#include "bank_account.h"
-#include "checking_account.h"
-#include "savings_account.h"
-#include<memory>
-#include<vector>
+//customer.cpp
+#include "customer.h"
 
-#ifndef CUSTOMER_H
-#define CUSTOMER_H
+using std::make_unique;
 
-class Customer
+Customer::Customer()
 {
-public:
-    Customer();
-    Customer(int checking_balance, int savings_balance);
-    std::unique_ptr<BankAccount>& get_account(int index){return accounts[index];}
+    accounts.push_back(make_unique<CheckingAccount>());
+    accounts.push_back(make_unique<SavingsAccount>());
+}
 
-private:
-    std::vector<std::unique_ptr<BankAccount>> accounts;
-};
-
-
-#endif
+Customer::Customer(int checking_balance, int savings_balance)
+{
+    accounts.push_back(make_unique<CheckingAccount>(checking_balance));
+    accounts.push_back(make_unique<SavingsAccount>(savings_balance));
+}
