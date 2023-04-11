@@ -29,7 +29,6 @@ int main()
 		cout<<"Continue? Y/N: ";
 		cin>>cont;
 		manage.save_game(*game);
-
 	} while (cont == "Y" || cont == "y");
 
 	if(cont == "N" || cont =="n")
@@ -37,15 +36,17 @@ int main()
 		int o;
 		int x;
 		int t;
-		int total = o + x + t;
+
 
 		manage.get_winner_total(o, x, t);
+
+		int i = o + x + t;
 
 		cout<<"\n";
     	cout<<"X wins: "<<x<<"\n";
     	cout<<"O wins: "<<o<<"\n";
 		cout<<"Ties: "<<t<<"\n";
-		cout<<"Total games played: "<<total<<"\n";
+		cout<<"Total games played: "<<i<<"\n";
 	}
 	
 	return 0;
