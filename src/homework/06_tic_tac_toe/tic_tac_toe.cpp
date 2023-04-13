@@ -144,75 +144,19 @@ string Game::get_winner()
     return winner;
 }
 
-bool Game::check_column_win()
+bool Game::check_column_win() const
 {
-    string opp = "O";
-    if(player == "O")
-    {
-        opp = "X";
-    }
-
-
-    if (pegs[0] == opp && pegs[3] == opp && pegs[6] == opp)
-    {
-        cout<<opp<<" has won with a column win!\n";
-        return true;
-    }
-    else if (pegs[1] == opp && pegs[4] == opp && pegs[7] == opp)
-    {
-        cout<<opp<<" has won with a column win!\n";
-        return true;
-    }
-    else if (pegs[2] == opp && pegs[5] == opp && pegs[8] == opp)
-    {
-        cout<<opp<<" has won with a column win!\n";
-        return true;
-    }
-
+    return false; 
 }
 
-bool Game::check_row_win()
+bool Game::check_row_win() const
 {
-    string opp = "O";
-    if(player == "O")
-    {
-        opp = "X";
-    }
-    if (pegs[0] == opp && pegs[1] == opp && pegs[2] == opp)
-    {
-        cout<<opp<<" has won with a row win!\n";
-        return true;
-    }
-    else if (pegs[3] == opp && pegs[4] == opp && pegs[5] == opp)
-    {
-        cout<<opp<<" has won with a row win!\n";
-        return true;
-    }
-    else if (pegs[6] == opp && pegs[7] == opp && pegs[8] == opp)
-    {
-        cout<<opp<<" has won with a row win!\n";
-        return true;
-    }
+    return false;
 }
 
-bool Game::check_diagonal_win()
+bool Game::check_diagonal_win() const
 {
-    string opp = "O";
-    if(player == "O")
-    {
-        opp = "X";
-    }
-    if (pegs[0] == opp && pegs[4] == opp && pegs[8] == opp)
-    {
-        cout<<opp<<" has won with a diagonal win!\n";
-        return true;
-    }
-    else if (pegs[6] == opp && pegs[4] == opp && pegs[2] == opp)
-    {
-        cout<<opp<<" has won with a diagonal win!\n";
-        return true;
-    }
-    
+    return false; 
 }
 
 void Game::set_winner()
