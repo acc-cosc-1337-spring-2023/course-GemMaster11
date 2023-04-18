@@ -45,8 +45,15 @@ class Game
 
 
 public:
-    Game(){};
-    Game(const int SIZE) : pegs(SIZE*SIZE, " "){};
+    Game(const int SIZE) : pegs(SIZE*SIZE, " ")
+    {
+        
+    };
+    Game(std::vector<std::string> p, std::string win)
+    {
+
+    };
+
     bool game_over();
     virtual void start_game(std::string first_player);
     void mark_board(int position);

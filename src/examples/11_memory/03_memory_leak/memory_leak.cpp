@@ -18,7 +18,7 @@ void use_dynamic_memory_array(const int num)
     cout<<nums[2]<<"\n";
 
     //delete memory
-    delete nums;
+    delete[] nums;
 }
 
 int* get_dynamic_memory(const int num)
@@ -35,14 +35,14 @@ void limit_dynamic_memory_scope(const int num)
         cout<<nums[i]<<"\n";
     }
     //delete memory
-    delete nums;
+    delete[] nums;
 
 }
 
 void delete_dynamic_memory(int* array)
 {
     cout<<"Deleting dynamic memory\n";
-    delete array;
+    delete[] array;
 }
 void use_dynamic_array(const int num)
 {
