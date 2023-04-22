@@ -3,18 +3,18 @@
 
 using std::string;
 using std::cout;
+using std::vector;
 
 
 bool Game::game_over()
 {
     bool condition = false;
-
+    
     if (check_column_win() == true || check_diagonal_win() == true || check_row_win() == true)
     {
         set_winner();
         return true;
     }
-
     condition = check_board_full();
     if(condition == true)
     {
@@ -23,7 +23,6 @@ bool Game::game_over()
         cout<<"Tie\n";
         cout<<"Game Over\n";
     }
-
     return condition;
 }
 
@@ -42,16 +41,6 @@ void Game::start_game(string first_player)
         cout<<"Invalid letter";
     }
     clear_board();
-
-    /*int position;
-
-    while(!game_over())
-	{
-		cout<<"Enter position from 1 to 9: "; //moved to main
-        cin>>position;
-        mark_board(position);
-	}*/
-
 }
 
 void Game::mark_board(int position)
@@ -128,7 +117,7 @@ string Game::get_player() const
     }
 }*/
 
-string Game::get_winner()
+string Game::get_winner() const
 {
     string opp = "X";
     if(winner == "O")
@@ -167,4 +156,9 @@ void Game::set_winner()
         winner = "X";
     }
 
+}
+
+vector<string> Game::get_pegs() const
+{
+    return pegs;
 }

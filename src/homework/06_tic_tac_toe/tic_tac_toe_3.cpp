@@ -3,6 +3,7 @@
 using std::cout;
 using std::string;
 
+
 /*
 class function check_column_win
 Win by column if and return true if

@@ -9,6 +9,8 @@ class Vector
 public:
     Vector(int size);
     Vector(const Vector& v);//Rule 1 of rule of 3(legacy C++)
+    Vector& operator=(const Vector& v);//Copy assignmentRule 2 of 3 legacy
+    Vector(Vector&& v); //move constructor Rule 4 of 5 in modern c++
     int Size(){return size;}
     int Capacity(){return capacity;}
     int& operator[](int index){return elements[index];} // overloads [] for elements

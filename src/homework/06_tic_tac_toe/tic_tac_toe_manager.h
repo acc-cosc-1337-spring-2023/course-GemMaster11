@@ -1,5 +1,6 @@
 //h
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_data.h"
 #ifndef TICMAN_H
 #define TICMAN_H
 
@@ -22,6 +23,9 @@ friend std::ostream& operator<<(std::ostream& out, const Manager& manager)
 }
 
 public:
+Manager() = default;
+Manager(TicData &data);
+~Manager();
 void save_game(std::unique_ptr<Game> game);
 void get_winner_total(int& o, int& w, int& t);
 
@@ -32,6 +36,7 @@ int x_win = 0;
 int o_win = 0;
 int ties = 0;
 void update_winner_count(std::string winner);
+TicData data;
 
 };
 

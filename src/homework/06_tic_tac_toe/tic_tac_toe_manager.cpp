@@ -9,6 +9,20 @@ using std::make_unique;
 
 Manager manage;
 
+Manager::Manager(TicData& data)
+ : games{data.get_games()}
+{
+    for(unique_ptr<Game> &i : games)
+    {
+        update_winner_count(i->get_winner());
+    }
+}
+
+Manager::~Manager()
+{
+    data.save_games(move(games));
+}
+
 void Manager::save_game(unique_ptr<Game> game)
 {
     update_winner_count(game->get_winner());

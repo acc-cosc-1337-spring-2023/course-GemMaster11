@@ -11,6 +11,7 @@ class Board4: public Game
 
 public:
     Board4() : Game(4){};
+    Board4(std::vector<std::string> p, std::string winner) : Game(p,winner){}; 
 
 
 private:

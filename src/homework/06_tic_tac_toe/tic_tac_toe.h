@@ -16,7 +16,7 @@ class Game
 
         for (int i = 0; i < size; i += std::sqrt(size)) 
         {
-            out << game.pegs[i]; //<< "|" << game.pegs[i + 1] << "|" << game.pegs[i + 2];
+            out << game.pegs[i];
 
             for(int j = 1; j<std::sqrt(size); j++)
             {
@@ -35,7 +35,7 @@ class Game
     {
         int position;
 
-        std::cout<<"Enter position from 1 to "<<game.pegs.size()<<": \n";
+        std::cout<<"Enter position from 1 to "<<game.pegs.size()<<": ";
         in>>position;
 
         game.mark_board(position);
@@ -45,27 +45,24 @@ class Game
 
 
 public:
-    Game(const int SIZE) : pegs(SIZE*SIZE, " ")
-    {
-        
-    };
-    Game(std::vector<std::string> p, std::string win)
-    {
-
-    };
+    Game(const int SIZE) : pegs(SIZE*SIZE, " "){};
+    Game(std::vector<std::string> p, std::string win) 
+        : pegs{p}, winner{win}{};
+    
 
     bool game_over();
     virtual void start_game(std::string first_player);
     void mark_board(int position);
     std::string get_player() const;
-    //void display_board() const;
-    std::string get_winner();
+    std::string get_winner() const;
+    std::vector<std::string> get_pegs() const;
 
 private:
     void set_next_player();
     bool check_board_full();
     void clear_board();
     void set_winner();
+
 
     std::string winner;
     std::string player;

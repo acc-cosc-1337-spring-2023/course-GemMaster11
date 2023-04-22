@@ -36,12 +36,12 @@ int main()
     cout<<s2<<"\n";
 
     string s3(s0, 8, 3);// start at 8 and give it 3 characters
-    cout<<s3<<"\n";
+    cout<<s3<<"\n";*/
 
     string s4("Another character sequence", 12); // give it the first 12
     cout<<s4<<"\n";
 
-    string s5(10, 'x'); //makes 10 x's
+    /*string s5(10, 'x'); //makes 10 x's
     cout<<s5<<"\n";
 
     string s6(10, 42);// 42 is the *, ascii 

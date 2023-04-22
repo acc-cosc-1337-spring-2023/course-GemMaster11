@@ -15,9 +15,12 @@ void output_to_file()
     myfile.open("example.dat");//open in text mode
 
     cout<<"Write to file... \n";
-    myfile<<"Write a line to file\n";
-    myfile<<"Write another line to file\n";
-    myfile<<"Write another line to file\n";
+    cout<<"Write another line to file\n";
+    myfile<<"1one\n";
+    cout<<"Write another line to file\n";
+    myfile<<"2two\n";
+    cout<<"Write another line to file\n";
+    myfile<<"3three\n";
 
     cout<<"Close the file\n";
     myfile.close();
@@ -35,7 +38,12 @@ void read_from_file()
         cout<<"Read from file\n";
         while(getline(infile, line))
         {
-            cout<<line<<"\n";
+            //cout<<line<<"\n";
+            for(char ch: line)
+            {
+               cout<<ch; 
+            }
+            cout<<"\n";
         }
         cout<<"Close the file object\n";
         infile.close();

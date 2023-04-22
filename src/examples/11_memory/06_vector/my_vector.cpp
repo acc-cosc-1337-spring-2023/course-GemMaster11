@@ -25,6 +25,34 @@ Vector::Vector(const Vector& v)
     }
 }
 
+Vector& Vector::operator=(const Vector& v)
+{
+    int* temp = new int[v.size];
+
+    for(auto i=0; i<v.size; i++)
+    {
+        temp[i]=v.elements[i];
+    }
+
+    cout<<"copy assignment delete memory at "<<elements<<"\n";
+    delete[] elements;
+
+    elements = temp;
+
+    cout<<"copy assignment - create memory at "<<elements<<"\n";
+    size = v.size;
+
+    return *this;//returns a reference to itself
+}
+
+Vector::Vector(Vector&& v)
+ : size{v.size}, elements{v.elements}
+{
+    cout<<"Move constructor switched pointer "<<elements<<"\n";
+    v.elements = nullptr;
+    v.size = 0;
+}
+
 //Free function
 void use_vector()
 {
