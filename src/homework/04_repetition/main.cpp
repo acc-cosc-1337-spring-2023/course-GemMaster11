@@ -1,7 +1,6 @@
 //write include statements
-
+#include "dna.h"
 //write using statements
-
 
 /*
 Write code that prompts user to enter 1 for Get GC Content, 
@@ -12,5 +11,5 @@ user enters a y or Y.
 */
 int main() 
 {
-	return 0;
+	menu();
 }
