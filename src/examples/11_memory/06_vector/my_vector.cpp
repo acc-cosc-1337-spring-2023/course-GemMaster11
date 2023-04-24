@@ -9,6 +9,57 @@ Vector::Vector(int s)
     cout<<"New memory created at "<<elements<<"\n";
 }
 
+Vector& Vector::operator=(Vector&& v)
+{
+    cout<<"Move assignment delete memory "<<elements<<"\n";
+    delete[] elements;
+
+    elements = v.elements;
+    cout<<"Move assignment switch pointers "<<elements<<"\n";
+
+    size = v.size;
+    v.elements = nullptr;
+    v.size = 0;
+
+    return *this;
+}
+
+void Vector::Reserve(int new_size)
+{
+    if(new_size >= capacity)
+    {
+        return;
+    }
+
+    int* temp = new int[new_size];
+
+    for(auto i=0; i<size; i++)
+    {
+        temp[i] = elements[i];
+    }
+
+    cout<<"Delete old memory"<<elements<<"\n";
+    delete[] elements;
+
+    elements = temp;
+    capacity = new_size;
+}
+void Vector::PushBack(int value)
+{
+    if(capacity == 0)
+    {
+        Reserve(RESERVE_DEFAULT_SIZE);
+    }
+    else if(capacity == size)
+    {
+        Reserve(capacity * RESERVE_DEFAULT_MULTIPLIER);
+    }
+
+    elements[size] = value;
+    size++;
+
+}
+
 Vector::~Vector()
 {
     cout<<"delete memory at" <<elements<<"\n";
@@ -24,6 +75,8 @@ Vector::Vector(const Vector& v)
         elements[i] = v.elements[i];
     }
 }
+
+
 
 Vector& Vector::operator=(const Vector& v)
 {
@@ -61,4 +114,10 @@ void use_vector()
 
     Vector v(3);
     Vector v1 = v;
+}
+
+Vector get_vector()
+{
+    Vector v1(3);
+    return v1;
 }
